@@ -1,0 +1,12 @@
+body {
+    font-family: "Oswald",sans-serif;
+    color: $special_dark-grey;
+}
+
+.container {
+    max-width: $desktop;
+    width: 100%;
+    background-color: greenyellow;
+    margin: 0 auto;
+    padding: 0 10px;
+}
