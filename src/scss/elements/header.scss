@@ -4,9 +4,10 @@
     nav {
         display: flex;
         position: absolute;
-        left: 0;
-        top: 0;
+        left: calc(50% - 525px);
+        top: 70px;
         width: 100%;
+        max-width: 1050px;
         justify-content: space-between;
         align-items: center;
     }
@@ -45,7 +46,7 @@
 
     .container-header {
         @include flex;
-
+        margin-left: 80px;
         h1 {
             color: $black;
             font-size: 60px;
@@ -64,12 +65,19 @@
     }
 
     .green-cat {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @include image;
         height: 700px;
         width: 100%;
         max-width: 720px;
     }
-
+    .kyrica {
+        @include image;
+        right: 330px;
+        top: 140px;
+        background-image: url("../../img/index-can-desktop@1x.png");
+        position: absolute;
+        width: 550px;
+        height: 500px;
+    }
 }
+
