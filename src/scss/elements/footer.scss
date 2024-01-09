@@ -1,8 +1,10 @@
 .footer {
     background-color: $basic-grey;
+    padding: 60px 0;
     @include flex;
 
     &-logo img {
+        margin-left: 60px;
         width: 128px;
         height: 24px;
     }
@@ -10,22 +12,24 @@
     .social-list {
         @include flex;
 
-        .social-item.vk {
+        .social-item.vk img {
             width: 30px;
             height: 22px;
         }
 
-        .social-item.inst {
+        .social-item.inst img {
+            margin: 0 25px;
             width: 23px;
             height: 23px;
         }
 
-        .social-item.fb {
+        .social-item.fb img {
             width: 28px;
             height: 33px;
         }
     }
     &-academy img {
+        margin-right: 60px;
         width: 163px;
         height: 34px;
     }
