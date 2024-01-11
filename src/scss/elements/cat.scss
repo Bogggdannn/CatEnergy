@@ -69,8 +69,11 @@
 
     .slider__images {
         display: flex;
-        justify-content: center;
-        height: 240px;
+        justify-content: space-between;
+        height: 520px;
+        margin: 0 auto 40px;
+        max-width: 650px;
+        width: auto;
     }
 
     .slider__wrapper {
@@ -78,17 +81,32 @@
     }
 
     .slider__image-wrapper {
-        display: none;
         transition: .2s ease-in-out;
+        width: 50%;
+        overflow: hidden;
+        position: relative;
 
         &--active {
             display: block;
         }
+
+        &--before {
+
+        }
     }
 
     .slider__image {
+        position: absolute;
         width: auto;
         height: 100%;
+
+        &--before {
+            left: 0;
+        }
+
+        &--after {
+            right: 0;
+        }
     }
 
     .slider__buttons {
@@ -97,7 +115,7 @@
     }
 
     .slider__label {
-
+        border-bottom: 1px dotted $black;
         color: $black;
         font-size: 20px;
         font-style: normal;
@@ -109,7 +127,7 @@
     .slider__bar {
         height: 6px;
         width: 430px;
-        position: absolute;
+        position: relative;
         border-radius: 6px;
         background: #DCDCDC;
         margin: 0 20px;
@@ -118,5 +136,14 @@
     .slider__toggle {
         position: absolute;
         border-radius: 50%;
+        border: 1px solid #DCDCDC;
+        box-shadow: 0 2px 5px 0 rgba($black, $alpha: 0.15);
+        transform: translateX(-50%);
+        margin: 0;
+        left: 50%;
+        top: -15px;
+        width: 35px;
+        height: 35px;
+        background: radial-gradient($basic-green 5px,$special_grey-2 5px);
     }
 }

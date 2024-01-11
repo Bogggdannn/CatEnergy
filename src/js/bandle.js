@@ -1,1 +1,1 @@
-let a=123,b=456;console.log(a+b);
+window.addEventListener("DOMContentLoaded",()=>{document.querySelector(".slider__bar").querySelector(".slider__toggle"),document.querySelector(".slider__image-wrapper--before"),document.querySelector(".slider__image-wrapper--after"),document.querySelector(".slider__label--before"),document.querySelector(".slider__label--after")});
