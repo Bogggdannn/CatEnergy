@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
             newLeft = right
         }
         let newWidth = Math.round(newLeft / right * 100)
-        imageBefore.style.width = `calc(${100 - newWidth}% + 40px)`
+        imageBefore.style.width = `calc(${newWidth}% + 40px)`
         imageAfter.style.width = 100 - newWidth + "%"
         if (newWidth == 0) {
             imageBefore.style.width = newWidth + "%"
@@ -32,13 +32,37 @@ window.addEventListener("DOMContentLoaded", () => {
         sliderToggle.style.left = `${newWidth}%`
         console.log(imageAfter)
     }
+
+    function sliderDesktop(){
+        imageBefore.classList.add("slider__image-wrapper--active")
+        imageAfter.classList.remove("slider__image-wrapper--active")
+        if (widthContainer > 767){
+            let sliderClient = sliderBar.getBoundingClientRect()
+            let sliderLeft = sliderClient.left + pageXOffset
+            sliderToggle.onmousedown = function(event){
+                let itemClient = sliderToggle.getBoundingClientRect()
+            }
+
+    }
+
     /**
 создаем slider
 */
     function initSlider() {
         widthContainer = document.querySelector(".container").offsetWidth
-        console.log(widthContainer)
+        if (/Android|Iphone|webOS|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(navigator.userAgent) && 1<0){
+            if (widthContainer > 767){
+                // вызывается функция для планшетов
+            }
+            else {
+                // вызывается функция для мобилок
+            } 
+        }
+        else {
+            sliderDesktop()
+        } 
     }
+
     initSlider()
-    window.onresize = initSlider()
+    window.onresize = initSlider
 })
