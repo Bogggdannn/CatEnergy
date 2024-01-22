@@ -33,16 +33,48 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log(imageAfter)
     }
 
-    function sliderDesktop(){
+    //slider для компов
+    function sliderDesktop() {
         imageBefore.classList.add("slider__image-wrapper--active")
         imageAfter.classList.remove("slider__image-wrapper--active")
-        if (widthContainer > 767){
+        if (widthContainer > 767) {
             let sliderClient = sliderBar.getBoundingClientRect()
             let sliderLeft = sliderClient.left + pageXOffset
-            sliderToggle.onmousedown = function(event){
+            sliderToggle.onmousedown = function (event) {
                 let itemClient = sliderToggle.getBoundingClientRect()
-            }
+                itemsCurtsLeft = itemClient.left + window.scrollX
+                right = sliderBar.offsetWidth - sliderToggle.offsetWidth
+                shiftX = event.pageX - itemsCurtsLeft
 
+                document.onmousemove = function (event) {
+                    let newLeft = event.pageX - itemsCurtsLeft - shiftX
+                    moveToggle(newLeft, right)
+                    return false
+                }
+                ducument.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null
+                }
+            }
+            initLabel()
+        }
+    }
+
+    //обрабатывает кнопки Было Стало
+    function initLabel() {
+        right = sliderBar.offsetWidth - sliderToggle.offsetWidth
+        labelBefore.onclick = function (event) {
+            let newWidth = sliderToggle.style.left ? (parseInt(slider.style.left) - 20) : 30
+            if (newWidth <= 0) {
+                newWidth = 0
+                imageBefore.style.width = newWidth + "%"
+                imageAfter.style.width = `calc(${100 - newWidth}% + 40px)`
+            }
+            else {
+                imageBefore.style.width = `calc(${newWidth}% + 40px)`
+                imageAfter.style.width = 100 - newWidth + "%"
+            }
+            sliderToggle.style.left = newWidth + "%"
+        }
     }
 
     /**
@@ -50,17 +82,18 @@ window.addEventListener("DOMContentLoaded", () => {
 */
     function initSlider() {
         widthContainer = document.querySelector(".container").offsetWidth
-        if (/Android|Iphone|webOS|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(navigator.userAgent) && 1<0){
-            if (widthContainer > 767){
+        console.log(navigator)
+        if (/Android|Iphone|webOS|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(navigator.userAgent)) {
+            if (widthContainer > 767) {
                 // вызывается функция для планшетов
             }
             else {
                 // вызывается функция для мобилок
-            } 
+            }
         }
         else {
             sliderDesktop()
-        } 
+        }
     }
 
     initSlider()
