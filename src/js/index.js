@@ -47,22 +47,60 @@ window.addEventListener("DOMContentLoaded", () => {
                 shiftX = event.pageX - itemsCurtsLeft
 
                 document.onmousemove = function (event) {
-                    let newLeft = event.pageX - itemsCurtsLeft - shiftX
+                    let newLeft = event.pageX - sliderLeft - shiftX
                     moveToggle(newLeft, right)
                     return false
                 }
-                ducument.onmouseup = function () {
+                document.onmouseup = function () {
                     document.onmousemove = document.onmouseup = null
                 }
             }
             initLabel()
         }
+        else{
+            sliderMobile()
+        }
+    }
+
+    function sliderTablet(){
+        imageBefore.classList.add("slider__image-wrapper--active")
+        imageAfter.classList.remove("slider__image-wrapper--active")
+        if (widthContainer > 767){
+            let sliderClientCoords = sliderBar.getBoundingClientRect()
+            let sliderLeft = sliderClientCoords.left + window.scrollX
+            sliderToggle.ontouchstart = function(event){
+                let itemClientCoords = sliderToggle.getBoundingClientRect()
+                itemsCurtsLeft = itemClientCoords.left + window.scrollX
+                right = sliderBar.offsetWidth - sliderToggle.offsetWidth
+                shiftX = event.touches[0].pageX - itemsCurtsLeft
+                // const array = [1, 2, 3]
+            }
+            sliderToggle.ontouchmove = function(event){
+                let newLeft = event.targetTouches[0].pageX - sliderLeft - shiftX
+                moveToggle(newLeft, right)
+            }
+            initLabel()
+        }
+        else{
+            sliderMobile()
+        }
+    }
+
+    function sliderMobile(){
+        imageAfter.style = ""
+        imageBefore.style = ""
+        sliderToggle.style = ""
+        document.onmousedown = null
+        sliderToggle.onclick = function(){
+
+        }
+
     }
 
     //обрабатывает кнопки Было Стало
     function initLabel() {
         right = sliderBar.offsetWidth - sliderToggle.offsetWidth
-        labelBefore.onclick = function (event) {
+        labelAfter.onclick = function (event) {
             let newWidth = sliderToggle.style.left ? (parseInt(slider.style.left) - 20) : 30
             if (newWidth <= 0) {
                 newWidth = 0
@@ -75,6 +113,15 @@ window.addEventListener("DOMContentLoaded", () => {
             }
             sliderToggle.style.left = newWidth + "%"
         }
+        labelBefore.onclick = function(event){
+            let newWidth = sliderToggle.style.left ? (parseInt(slider.style.left) + 20) : 30
+            if (newWidth >= 100){
+                newWidth = 100
+            }
+            imageBefore.style.width = `calc(${newWidth}% + 40px)`
+            imageAfter.style.width = 100 - newWidth + "%"
+            sliderToggle.style.left = newWidth + "%"
+        }
     }
 
     /**
@@ -82,13 +129,15 @@ window.addEventListener("DOMContentLoaded", () => {
 */
     function initSlider() {
         widthContainer = document.querySelector(".container").offsetWidth
-        console.log(navigator)
+        console.log(getComputedStyle(sliderToggle))
         if (/Android|Iphone|webOS|iPad|iPod|BlackBerry|IEMobile|Opera Mini/.test(navigator.userAgent)) {
             if (widthContainer > 767) {
                 // вызывается функция для планшетов
+                sliderTablet()
             }
             else {
                 // вызывается функция для мобилок
+                sliderMobile()
             }
         }
         else {
