@@ -92,7 +92,30 @@ window.addEventListener("DOMContentLoaded", () => {
         sliderToggle.style = ""
         document.onmousedown = null
         sliderToggle.onclick = function(){
-
+            if (parseInt(getComputedStyle(sliderToggle).marginLeft) > 6){
+                before()
+            }
+            else{
+                after()
+            }
+            labelBefore.onclick = function(){
+                before()
+            }
+            labelAfter.onclick = function(){
+                after()
+            }
+            function before(){
+                sliderToggle.style.marginRight = "auto"
+                sliderToggle.style.marginLeft = ""
+                imageBefore.classList.add("slider__image-wrapper--active")
+                imageAfter.classList.remove("slider__image-wrapper--active")
+            }
+            function after(){
+                sliderToggle.style.marginRight = ""
+                sliderToggle.style.marginLeft = "auto"
+                imageBefore.classList.remove("slider__image-wrapper--active")
+                imageAfter.classList.add("slider__image-wrapper--active")
+            }
         }
 
     }
@@ -101,26 +124,14 @@ window.addEventListener("DOMContentLoaded", () => {
     function initLabel() {
         right = sliderBar.offsetWidth - sliderToggle.offsetWidth
         labelAfter.onclick = function (event) {
-            let newWidth = sliderToggle.style.left ? (parseInt(slider.style.left) - 20) : 30
-            if (newWidth <= 0) {
-                newWidth = 0
-                imageBefore.style.width = newWidth + "%"
-                imageAfter.style.width = `calc(${100 - newWidth}% + 40px)`
-            }
-            else {
-                imageBefore.style.width = `calc(${newWidth}% + 40px)`
-                imageAfter.style.width = 100 - newWidth + "%"
-            }
-            sliderToggle.style.left = newWidth + "%"
+            imageBefore.style.width = 0
+            imageAfter.style.width = `100%`
+            sliderToggle.style.left = `0%`
         }
         labelBefore.onclick = function(event){
-            let newWidth = sliderToggle.style.left ? (parseInt(slider.style.left) + 20) : 30
-            if (newWidth >= 100){
-                newWidth = 100
-            }
-            imageBefore.style.width = `calc(${newWidth}% + 40px)`
-            imageAfter.style.width = 100 - newWidth + "%"
-            sliderToggle.style.left = newWidth + "%"
+            imageBefore.style.width = `100%`
+            imageAfter.style.width = 0
+            sliderToggle.style.left = `100%`
         }
     }
 
