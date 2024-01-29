@@ -1,11 +1,18 @@
 .advantages {
     margin-top: 80px;
+    @media (max-width: $tablet){
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
     &-category__item {
         color: $black;
         background-color: $basic-grey;
         padding: 45px 50px;
         max-width: 470px;
         width: 100%;
+        @media (max-width: $tablet) {
+            max-width: unset;
+        }
     }
 
     &-category__title {
@@ -25,6 +32,10 @@
             height: 100px;
             background-color: $basic-green;
             border-radius: 50%;
+            @media (max-width: $tablet){
+                width: 200px;
+                height: 200px;
+            }
         }
         &::after {
             content: "";
@@ -40,6 +51,12 @@
                 width: 70px;
                 height: 97px;
                 background-image: url("../../img/icon-cat-slim.svg");
+                @media (max-width:$tablet){
+                    width: 140px;
+                    height: 192px;
+                    top: -29px;
+                    left: 26px;
+                }
             }
         }
         &.pro {
@@ -49,6 +66,10 @@
                 width: 134px;
                 height: 56px;
                 background-image: url("../../img/icon-cat-pro.svg");
+                @media (max-width:$tablet){
+                    width: 268px;
+                    height: 112px;
+                }
             }
         }
     }
@@ -89,5 +110,10 @@
         width: 100%;
         gap: 80px;
         justify-content: center;
+        @media (max-width: $tablet){
+            grid-template-columns: 1fr;
+            gap: 30px;
+            justify-items: center;
+        }
     }
 }
