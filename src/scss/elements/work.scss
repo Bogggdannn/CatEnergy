@@ -7,8 +7,17 @@
     &__list {
         display: grid;
         grid-template-columns: repeat(4, 245px);
-        gap: 95px;
+        gap: 60px;
         counter-reset: li;
+        max-width: 100%;
+        padding: 0 30px;
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 245px);
+            justify-content: space-around;
+        }
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__item {
