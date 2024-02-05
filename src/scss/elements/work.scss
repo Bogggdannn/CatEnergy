@@ -1,7 +1,12 @@
 .work {
     margin-bottom: 70px;
+    padding: 0 10px;
     &__title {
         margin-bottom: 70px;
+        @media (max-width:$mobile) {
+            margin-bottom: 30px;
+            padding: 0 30px;
+        }
     }
 
     &__list {
@@ -17,6 +22,7 @@
         }
         @media (max-width: $mobile) {
             grid-template-columns: 1fr;
+            gap: 5px;
         }
     }
 
@@ -28,6 +34,10 @@
             font-size: 16px;
             font-weight: 400;
             line-height: 24px;
+            @media (max-width:$mobile) {
+                padding-top: 0;
+                padding-left: 90px;
+            }
         }
 
         &.leaf {
@@ -67,6 +77,9 @@
                 background-position: center;
                 width: 80px;
                 height: 80px;
+                @media (max-width:$mobile) {
+                    top: calc(50% - 40px);
+                }
             }
             &::after {
                 position: absolute;
@@ -79,6 +92,12 @@
                 top: -15px;
                 right: -15px;
                 z-index: -1;
+                @media (max-width:$tablet) {
+                    right: 15px;
+                }
+                @media (max-width:$mobile) {
+                    display: none;
+                }
             }
         }
     }

@@ -5,6 +5,9 @@
         padding: 0 30px;
         box-sizing: border-box;
     }
+    @media (max-width:$mobile) {
+        padding: 0 38px;
+    }
 
     &-category__item {
         color: $black;
