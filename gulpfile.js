@@ -19,7 +19,7 @@ const style = () => {
         .pipe(server.stream())
 }
 const scripts = () => {
-    return gulp.src(["src/js/index.js"])
+    return gulp.src(["src/js/index.js","src/js/settings.js"])
         .pipe(concat("bandle.js"))
         .pipe(uglify())
         .pipe(gulp.dest("src/js"))
@@ -35,6 +35,7 @@ const serv = () => {
     })
     gulp.watch("src/scss/**/*.scss", style)
     gulp.watch("src/js/index.js", scripts)
+    gulp.watch("src/js/settings.js", scripts)
     gulp.watch("src/*.html").on("change", server.reload)
 }
 exports.style = style
