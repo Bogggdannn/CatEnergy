@@ -23,6 +23,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @media (max-width:$mobile) {
+            display: none;
+        }
     }
 
     &-list__item {
@@ -49,6 +52,14 @@
                 background-color: #FFF;
             }
         }
+        @media (max-width:$tablet) {
+            color: $black;
+            &--active{
+                &::after{
+                    background-color: $basic-green;
+                }
+            }
+        }
     }
 
     .container-header {
@@ -58,6 +69,9 @@
 
         &-text {
             padding-left: 120px;
+            @media (max-width:$mobile) {
+                padding-left: 0;
+            }
         }
 
         h1 {
@@ -66,6 +80,13 @@
             font-weight: 400;
             line-height: 60px;
             margin-bottom: 40px;
+            @media (max-width:$mobile) {
+                color: #FFF;
+                text-align: center;
+                font-size: 36px;
+                line-height: 100%;
+                margin-bottom: 25px;
+            }
         }
 
         p {
@@ -75,6 +96,16 @@
             line-height: 20px;
             text-transform: uppercase;
         }
+
+        @media (max-width:$tablet) {
+            padding-top: 100px;
+            padding-bottom: 400px;
+        }
+
+        @media (max-width:$mobile) {
+            justify-content: center;
+            padding-top: 120px;
+        }
     }
 
     .green-cat {
@@ -82,7 +113,33 @@
         height: 700px;
         width: 100%;
         max-width: 720px;
+        @media (max-width:$tablet) {
+            display: none;
+        }
+
+        @media (max-width:$mobile) {
+            display: block;
+            height: 300px;
+            background-image: url("../../img/index-background-mobile-1.png");
+            background-size: contain;
+            background-position: center;
+            max-width: 100%;
+            position: absolute;
+            z-index: -1;
+            top: 110px;
+        }
     }
+
+    .button-default {
+        @media (max-width:$mobile) {
+            position: absolute;
+            bottom: 0;
+            min-width: 255px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
     .kyrica {
         @include image;
         right: 325px;
@@ -91,6 +148,17 @@
         position: absolute;
         width: 550px;
         height: 500px;
+        @media (max-width:$tablet) {
+            right: calc(50% - (550px / 2));
+            top: 350px;
+            z-index: -1;
+        }
+        @media (max-width:$mobile) {
+            width: 280px;
+            height: 270px;
+            right: calc(50% - (280px / 2));
+            top: 300px;
+        }
     }
 }
 
