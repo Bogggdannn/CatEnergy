@@ -6,24 +6,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
+    <nav class="mobile-nav">
+        <ul class="header-list__mobile">
+            <li class="header-list__item index header-list__item--active cursor-pointer">
+                <a href="./index.html">Главная</a>
+            </li>
+            <li class="header-list__item catalog cursor-pointer">
+                <a href="./catalog.html">Каталог продукции</a>
+            </li>
+            <li class="header-list__item form cursor-pointer">
+                <a href="./form.html">Подбор программы</a>
+            </li>
+        </ul>
+    </nav>
     <header class="container header">
         <nav>
             <img class="animate" src="./img/logo-desktop.png" alt="logo">
             <ul class="header-list">
-                <li class="header-list__item header-list__item--active cursor-pointer">
-                    Главная
+                <li class="header-list__item index header-list__item--active cursor-pointer">
+                    <a href="./index.html">Главная</a>
                 </li>
-                <li class="header-list__item cursor-pointer">
-                    Каталог продукции
+                <li class="header-list__item catalog cursor-pointer">
+                    <a href="./catalog.html">Каталог продукции</a>
                 </li>
-                <li class="header-list__item cursor-pointer">
-                    Подбор программы
+                <li class="header-list__item form cursor-pointer">
+                    <a href="./form.html">Подбор программы</a>
                 </li>
             </ul>
-            <div class="hamburger hamburger--collapse is-active">
+            <div class="hamburger hamburger--collapse">
                 <div class="hamburger-box">
                   <div class="hamburger-inner"></div>
                 </div>

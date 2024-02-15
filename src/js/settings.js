@@ -13,4 +13,21 @@ window.addEventListener("DOMContentLoaded",() => {
     }
     getWidth()
     window.onresize = getWidth
+
+    let pathName = window.location.pathname
+    let html = document.querySelector("html")
+    let mobileNav = document.querySelector(".mobile-nav")
+    let hamburger = document.querySelector(".hamburger")
+    hamburger.onclick = function(){
+        mobileNav.classList.toggle("is-active")
+        hamburger.classList.toggle("is-active")
+        if(hamburger.classList.contains("is-active")){
+            html.style.overflow = "hidden"
+        }
+        else{
+            html.style.overflow = ""
+        }
+        
+    }
+    console.log(window.location)
 })
