@@ -98,10 +98,10 @@ window.addEventListener("DOMContentLoaded", () => {
             else{
                 after()
             }
-            labelBefore.onclick = function(){
+            labelAfter.onclick = function(){
                 before()
             }
-            labelAfter.onclick = function(){
+            labelBefore.onclick = function(){
                 after()
             }
             function before(){
