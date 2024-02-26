@@ -57,67 +57,63 @@ window.addEventListener("DOMContentLoaded", () => {
             }
             initLabel()
         }
-        else{
+        else {
             sliderMobile()
         }
     }
 
-    function sliderTablet(){
+    function sliderTablet() {
         imageBefore.classList.add("slider__image-wrapper--active")
         imageAfter.classList.remove("slider__image-wrapper--active")
-        if (widthContainer > 767){
+        if (widthContainer > 767) {
             let sliderClientCoords = sliderBar.getBoundingClientRect()
             let sliderLeft = sliderClientCoords.left + window.scrollX
-            sliderToggle.ontouchstart = function(event){
+            sliderToggle.ontouchstart = function (event) {
                 let itemClientCoords = sliderToggle.getBoundingClientRect()
                 itemsCurtsLeft = itemClientCoords.left + window.scrollX
                 right = sliderBar.offsetWidth - sliderToggle.offsetWidth
                 shiftX = event.touches[0].pageX - itemsCurtsLeft
                 // const array = [1, 2, 3]
             }
-            sliderToggle.ontouchmove = function(event){
+            sliderToggle.ontouchmove = function (event) {
                 let newLeft = event.targetTouches[0].pageX - sliderLeft - shiftX
                 moveToggle(newLeft, right)
             }
             initLabel()
         }
-        else{
+        else {
             sliderMobile()
         }
     }
 
-    function sliderMobile(){
+    function sliderMobile() {
         imageAfter.style = ""
         imageBefore.style = ""
         sliderToggle.style = ""
         document.onmousedown = null
-        sliderToggle.onclick = function(){
-            if (parseInt(getComputedStyle(sliderToggle).marginLeft) > 6){
+        sliderToggle.onclick = function () {
+            if (parseInt(getComputedStyle(sliderToggle).marginLeft) > 6) {
                 before()
-            }
-            else{
-                after()
-            }
-            labelAfter.onclick = function(){
-                before()
-            }
-            labelBefore.onclick = function(){
-                after()
-            }
-            function before(){
-                sliderToggle.style.marginRight = "auto"
-                sliderToggle.style.marginLeft = ""
-                imageBefore.classList.add("slider__image-wrapper--active")
-                imageAfter.classList.remove("slider__image-wrapper--active")
-            }
-            function after(){
-                sliderToggle.style.marginRight = ""
-                sliderToggle.style.marginLeft = "auto"
-                imageBefore.classList.remove("slider__image-wrapper--active")
-                imageAfter.classList.add("slider__image-wrapper--active")
             }
         }
-
+        labelAfter.onclick = function () {
+            before()
+        }
+        labelBefore.onclick = function () {
+            after()
+        }
+        function before() {
+            sliderToggle.style.marginRight = "auto"
+            sliderToggle.style.marginLeft = ""
+            imageBefore.classList.add("slider__image-wrapper--active")
+            imageAfter.classList.remove("slider__image-wrapper--active")
+        }
+        function after() {
+            sliderToggle.style.marginRight = ""
+            sliderToggle.style.marginLeft = "auto"
+            imageBefore.classList.remove("slider__image-wrapper--active")
+            imageAfter.classList.add("slider__image-wrapper--active")
+        }
     }
 
     //обрабатывает кнопки Было Стало
@@ -128,7 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
             imageAfter.style.width = `100%`
             sliderToggle.style.left = `0%`
         }
-        labelBefore.onclick = function(event){
+        labelBefore.onclick = function (event) {
             imageBefore.style.width = `100%`
             imageAfter.style.width = 0
             sliderToggle.style.left = `100%`
