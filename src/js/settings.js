@@ -61,17 +61,64 @@ window.addEventListener("DOMContentLoaded", () => {
             html.style.overflow = ""
         }
     }
-    if(pathName.includes("index")){
+    if (pathName.includes("index")) {
         desktopNav.querySelector(".index").classList.add("header-list__item--active")
         mobileNav.querySelector(".index").classList.add("header-list__item--active")
     }
-    else if(pathName.includes("form")){
+    else if (pathName.includes("form")) {
         console.log(desktopNav.querySelector(".form"))
         desktopNav.querySelector(".form").classList.add("header-list__item--active")
         mobileNav.querySelector(".form").classList.add("header-list__item--active")
     }
-    else if(pathName.includes("catalog")) {
+    else if (pathName.includes("catalog")) {
         desktopNav.querySelector(".catalog").classList.add("header-list__item--active")
         mobileNav.querySelector(".catalog").classList.add("header-list__item--active")
+    }
+    let catalogList = document.querySelector(".catalog-list")
+    let catalog = [
+        {
+            name: " Cat Energy PRO 500 г",
+            image: "/img/chicken-small-desktop@1x.png",
+            weight: "500 г",
+            taste: "Курица",
+            price: "700 Р."
+        },
+        {
+            name: " Cat Energy PRO 1000 г",
+            image: "/img/chicken-small-desktop@1x.png",
+            weight: "1000 г",
+            taste: "Курица",
+            price: "1000 Р."
+        },
+        
+        
+    ]
+    for (const item of catalog) {
+        const card = `<div class="catalog-list-card">
+        <div class="catalog-list-body">
+            <img src="${item.image}" alt="chicken small">
+            <div class="catalog-list-params">
+                <p class="catalog-list-name">
+                    ${item.name}
+                </p>
+                <p class="catalog-list-weight">
+                    <span class="params-name">Масса</span>
+                    <span class="params-value">${item.weight}</span>
+                </p>
+                <p class="catalog-list-taste">
+                    <span class="params-name">Вкус</span>
+                    <span class="params-value">${item.taste}</span>
+                </p>
+                <p class="catalog-list-price">
+                    <span class="params-name">Цена</span>
+                    <span class="params-value">${item.price}</span>
+                </p>
+            </div>
+        </div>
+        <div class="catalog-list-actions">
+            <button class="button-default">Заказать</button>
+        </div>
+    </div>`
+        catalogList.innerHTML += card
     }
 })
