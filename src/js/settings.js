@@ -90,11 +90,45 @@ window.addEventListener("DOMContentLoaded", () => {
             taste: "Курица",
             price: "1000 Р."
         },
-        
-        
+        {
+            name: " Cat Energy PRO 500 г",
+            image: "/img/fish-small-desktop@1x.png",
+            weight: "500 г",
+            taste: "Рыба",
+            price: "700 Р."
+        },
+        {
+            name: " Cat Energy PRO 1000 г",
+            image: "/img/fish-small-desktop@1x.png",
+            weight: "1000 г",
+            taste: "Рыба",
+            price: "1000 Р."
+        },
+        {
+            name: " Cat Energy PRO 500 г",
+            image: "/img/buckwheat-small-desktop@1x.png",
+            weight: "500 г",
+            taste: "Гречка",
+            price: "400 Р."
+        },
+        {
+            name: " Cat Energy PRO 1000 г",
+            image: "/img/buckwheat-small-desktop@1x.png",
+            weight: "1000 г",
+            taste: "Гречка",
+            price: "700 Р."
+        },
+        {
+            name: " Cat Energy PRO 500 г",
+            image: "/img/rice-small-desktop@1x.png",
+            weight: "500 г",
+            taste: "Рис",
+            price: "500 Р."
+        },
     ]
     for (const item of catalog) {
-        const card = `<div class="catalog-list-card">
+        let isBig = parseInt(item.weight) > 700
+        const card = `<div class="catalog-list-card ${isBig ? "isbig" : ""}">
         <div class="catalog-list-body">
             <img src="${item.image}" alt="chicken small">
             <div class="catalog-list-params">
