@@ -1,4 +1,10 @@
+section.catalog{
+    margin-bottom: 50px; 
+}
 .catalog {
+    .container-fluid {
+        max-width: 1300px;
+    }
     &-list {
         display: grid;
         justify-content: space-evenly;
@@ -131,10 +137,31 @@
     .add-item{
         border: 1px solid $basic-grey;
         order: 1;
-        padding: 10px;
+        padding: 20px 10px 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
+        &-header {
+            @include flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+        &-title {
+            font-size: 20px;
+        }
+        &-description {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 16px;
+       }
+       .button-default {
+            width: 169px;
+            min-height: 40px;
+            background: $basic-grey;
+            color: $special_dark-grey;
+       }
     }
 }

@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     getWidth()
     window.onresize = getWidth
-
+    let showAll = document.querySelector(".show-all")
     let pathName = window.location.pathname
     let html = document.querySelector("html")
     let mobileNav = document.querySelector(".mobile-nav")
@@ -61,6 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
             html.style.overflow = ""
         }
     }
+
     if (pathName.includes("index")) {
         desktopNav.querySelector(".index").classList.add("header-list__item--active")
         mobileNav.querySelector(".index").classList.add("header-list__item--active")
@@ -74,6 +75,12 @@ window.addEventListener("DOMContentLoaded", () => {
         desktopNav.querySelector(".catalog").classList.add("header-list__item--active")
         mobileNav.querySelector(".catalog").classList.add("header-list__item--active")
     }
+    if (pathName.includes("catalog") || pathName.includes("form")) {
+        desktopNav.querySelector(".index").classList.add("text-black")
+        desktopNav.querySelector(".form").classList.add("text-black")
+        desktopNav.querySelector(".catalog").classList.add("text-black")
+    }
+
     let catalogList = document.querySelector(".catalog-list")
     let catalog = [
         {
@@ -126,7 +133,47 @@ window.addEventListener("DOMContentLoaded", () => {
             price: "500 Р."
         },
     ]
+    console.log(showAll)
+    if (showAll) {
+        showAll.addEventListener("click", () => {
+            for (const item of catalog) {
+                if (!catalogList) {
+                    break
+                }
+                let isBig = parseInt(item.weight) > 700
+                const card = `<div class="catalog-list-card ${isBig ? "isbig" : ""}">
+                <div class="catalog-list-body">
+                    <img src="${item.image}" alt="chicken small">
+                    <div class="catalog-list-params">
+                        <p class="catalog-list-name">
+                            ${item.name}
+                        </p>
+                        <p class="catalog-list-weight">
+                            <span class="params-name">Масса</span>
+                            <span class="params-value">${item.weight}</span>
+                        </p>
+                        <p class="catalog-list-taste">
+                            <span class="params-name">Вкус</span>
+                            <span class="params-value">${item.taste}</span>
+                        </p>
+                        <p class="catalog-list-price">
+                            <span class="params-name">Цена</span>
+                            <span class="params-value">${item.price}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="catalog-list-actions">
+                    <button class="button-default">Заказать</button>
+                </div>
+            </div>`
+                catalogList.innerHTML += card
+            }
+        })
+    }
     for (const item of catalog) {
+        if (!catalogList) {
+            break
+        }
         let isBig = parseInt(item.weight) > 700
         const card = `<div class="catalog-list-card ${isBig ? "isbig" : ""}">
         <div class="catalog-list-body">

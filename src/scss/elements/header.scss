@@ -67,6 +67,10 @@
                 }
             }
         }
+    
+    }
+    .text-black.header-list__item--active::after{
+        background-color: $basic-green;
     }
 
     .container-header {
