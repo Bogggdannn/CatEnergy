@@ -43,7 +43,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     getWidth()
     window.onresize = getWidth
-    let showAll = document.querySelector(".show-all")
     let pathName = window.location.pathname
     let html = document.querySelector("html")
     let mobileNav = document.querySelector(".mobile-nav")
@@ -133,9 +132,8 @@ window.addEventListener("DOMContentLoaded", () => {
             price: "500 Р."
         },
     ]
-    console.log(showAll)
-    if (showAll) {
-        showAll.addEventListener("click", () => {
+    window.addEventListener("click",(event) =>{
+        if (event.target.classList.contains("show-all")){
             for (const item of catalog) {
                 if (!catalogList) {
                     break
@@ -168,8 +166,8 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>`
                 catalogList.innerHTML += card
             }
-        })
-    }
+        }
+    })
     for (const item of catalog) {
         if (!catalogList) {
             break

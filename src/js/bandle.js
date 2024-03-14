@@ -24,52 +24,52 @@ window.addEventListener("DOMContentLoaded",()=>{const s=document.querySelector("
 <li class="header-list__item form cursor-pointer">
     <a href="./form.html">Подбор программы</a>
 </li>
-</ul>`;window.addEventListener("DOMContentLoaded",()=>{let e;const t=document.querySelector(".footer-academy img");function a(){e=document.querySelector("body").offsetWidth,console.log(window.location.href),t&&(768<e?t.src=window.location.href+"img/logo-footer.png":t.src=window.location.href+"img/htmlAcademyMobile.png")}a(),window.onresize=a;var s=document.querySelector(".show-all"),i=window.location.pathname;let l=document.querySelector("html"),o=document.querySelector(".mobile-nav");var c=document.querySelector(".desktop-nav");o.innerHTML=templatesNavMobile,c.innerHTML=templatesNav;let n=document.querySelector(".hamburger"),r=(n.onclick=function(){o.classList.toggle("is-active"),n.classList.toggle("is-active"),n.classList.contains("is-active")?l.style.overflow="hidden":l.style.overflow=""},i.includes("index")?(c.querySelector(".index").classList.add("header-list__item--active"),o.querySelector(".index").classList.add("header-list__item--active")):i.includes("form")?(console.log(c.querySelector(".form")),c.querySelector(".form").classList.add("header-list__item--active"),o.querySelector(".form").classList.add("header-list__item--active")):i.includes("catalog")&&(c.querySelector(".catalog").classList.add("header-list__item--active"),o.querySelector(".catalog").classList.add("header-list__item--active")),(i.includes("catalog")||i.includes("form"))&&(c.querySelector(".index").classList.add("text-black"),c.querySelector(".form").classList.add("text-black"),c.querySelector(".catalog").classList.add("text-black")),document.querySelector(".catalog-list")),d=[{name:" Cat Energy PRO 500 г",image:"/img/chicken-small-desktop@1x.png",weight:"500 г",taste:"Курица",price:"700 Р."},{name:" Cat Energy PRO 1000 г",image:"/img/chicken-small-desktop@1x.png",weight:"1000 г",taste:"Курица",price:"1000 Р."},{name:" Cat Energy PRO 500 г",image:"/img/fish-small-desktop@1x.png",weight:"500 г",taste:"Рыба",price:"700 Р."},{name:" Cat Energy PRO 1000 г",image:"/img/fish-small-desktop@1x.png",weight:"1000 г",taste:"Рыба",price:"1000 Р."},{name:" Cat Energy PRO 500 г",image:"/img/buckwheat-small-desktop@1x.png",weight:"500 г",taste:"Гречка",price:"400 Р."},{name:" Cat Energy PRO 1000 г",image:"/img/buckwheat-small-desktop@1x.png",weight:"1000 г",taste:"Гречка",price:"700 Р."},{name:" Cat Energy PRO 500 г",image:"/img/rice-small-desktop@1x.png",weight:"500 г",taste:"Рис",price:"500 Р."}];console.log(s),s&&s.addEventListener("click",()=>{for(const t of d){if(!r)break;var e=`<div class="catalog-list-card ${700<parseInt(t.weight)?"isbig":""}">
+</ul>`;window.addEventListener("DOMContentLoaded",()=>{let e;const t=document.querySelector(".footer-academy img");function a(){e=document.querySelector("body").offsetWidth,console.log(window.location.href),t&&(768<e?t.src=window.location.href+"img/logo-footer.png":t.src=window.location.href+"img/htmlAcademyMobile.png")}a(),window.onresize=a;var s=window.location.pathname;let i=document.querySelector("html"),l=document.querySelector(".mobile-nav");var o=document.querySelector(".desktop-nav");l.innerHTML=templatesNavMobile,o.innerHTML=templatesNav;let c=document.querySelector(".hamburger"),n=(c.onclick=function(){l.classList.toggle("is-active"),c.classList.toggle("is-active"),c.classList.contains("is-active")?i.style.overflow="hidden":i.style.overflow=""},s.includes("index")?(o.querySelector(".index").classList.add("header-list__item--active"),l.querySelector(".index").classList.add("header-list__item--active")):s.includes("form")?(console.log(o.querySelector(".form")),o.querySelector(".form").classList.add("header-list__item--active"),l.querySelector(".form").classList.add("header-list__item--active")):s.includes("catalog")&&(o.querySelector(".catalog").classList.add("header-list__item--active"),l.querySelector(".catalog").classList.add("header-list__item--active")),(s.includes("catalog")||s.includes("form"))&&(o.querySelector(".index").classList.add("text-black"),o.querySelector(".form").classList.add("text-black"),o.querySelector(".catalog").classList.add("text-black")),document.querySelector(".catalog-list")),r=[{name:" Cat Energy PRO 500 г",image:"/img/chicken-small-desktop@1x.png",weight:"500 г",taste:"Курица",price:"700 Р."},{name:" Cat Energy PRO 1000 г",image:"/img/chicken-small-desktop@1x.png",weight:"1000 г",taste:"Курица",price:"1000 Р."},{name:" Cat Energy PRO 500 г",image:"/img/fish-small-desktop@1x.png",weight:"500 г",taste:"Рыба",price:"700 Р."},{name:" Cat Energy PRO 1000 г",image:"/img/fish-small-desktop@1x.png",weight:"1000 г",taste:"Рыба",price:"1000 Р."},{name:" Cat Energy PRO 500 г",image:"/img/buckwheat-small-desktop@1x.png",weight:"500 г",taste:"Гречка",price:"400 Р."},{name:" Cat Energy PRO 1000 г",image:"/img/buckwheat-small-desktop@1x.png",weight:"1000 г",taste:"Гречка",price:"700 Р."},{name:" Cat Energy PRO 500 г",image:"/img/rice-small-desktop@1x.png",weight:"500 г",taste:"Рис",price:"500 Р."}];window.addEventListener("click",e=>{if(e.target.classList.contains("show-all"))for(const a of r){if(!n)break;var t=`<div class="catalog-list-card ${700<parseInt(a.weight)?"isbig":""}">
                 <div class="catalog-list-body">
-                    <img src="${t.image}" alt="chicken small">
+                    <img src="${a.image}" alt="chicken small">
                     <div class="catalog-list-params">
                         <p class="catalog-list-name">
-                            ${t.name}
+                            ${a.name}
                         </p>
                         <p class="catalog-list-weight">
                             <span class="params-name">Масса</span>
-                            <span class="params-value">${t.weight}</span>
+                            <span class="params-value">${a.weight}</span>
                         </p>
                         <p class="catalog-list-taste">
                             <span class="params-name">Вкус</span>
-                            <span class="params-value">${t.taste}</span>
+                            <span class="params-value">${a.taste}</span>
                         </p>
                         <p class="catalog-list-price">
                             <span class="params-name">Цена</span>
-                            <span class="params-value">${t.price}</span>
+                            <span class="params-value">${a.price}</span>
                         </p>
                     </div>
                 </div>
                 <div class="catalog-list-actions">
                     <button class="button-default">Заказать</button>
                 </div>
-            </div>`;r.innerHTML+=e}});for(const g of d){if(!r)break;var m=`<div class="catalog-list-card ${700<parseInt(g.weight)?"isbig":""}">
+            </div>`;n.innerHTML+=t}});for(const m of r){if(!n)break;var d=`<div class="catalog-list-card ${700<parseInt(m.weight)?"isbig":""}">
         <div class="catalog-list-body">
-            <img src="${g.image}" alt="chicken small">
+            <img src="${m.image}" alt="chicken small">
             <div class="catalog-list-params">
                 <p class="catalog-list-name">
-                    ${g.name}
+                    ${m.name}
                 </p>
                 <p class="catalog-list-weight">
                     <span class="params-name">Масса</span>
-                    <span class="params-value">${g.weight}</span>
+                    <span class="params-value">${m.weight}</span>
                 </p>
                 <p class="catalog-list-taste">
                     <span class="params-name">Вкус</span>
-                    <span class="params-value">${g.taste}</span>
+                    <span class="params-value">${m.taste}</span>
                 </p>
                 <p class="catalog-list-price">
                     <span class="params-name">Цена</span>
-                    <span class="params-value">${g.price}</span>
+                    <span class="params-value">${m.price}</span>
                 </p>
             </div>
         </div>
         <div class="catalog-list-actions">
             <button class="button-default">Заказать</button>
         </div>
-    </div>`;r.innerHTML+=m}});
+    </div>`;n.innerHTML+=d}});
