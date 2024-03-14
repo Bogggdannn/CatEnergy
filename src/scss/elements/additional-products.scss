@@ -1,0 +1,21 @@
+.additional-products {
+    .products-title{
+        font-size: 36px;
+        font-weight: 400px;
+        color: $black;
+        position: relative;
+        max-width: 1300px;
+        width: 100%;
+        margin: 0 auto 30px;
+        span {
+            background-color: $white;
+            padding: 0 10px;
+        }
+    }
+    .products-line {
+        width: 100vw;
+        height: 2px;
+        background-color: $basic-green;
+        margin-top: -15px;
+    }
+}
