@@ -1,0 +1,44 @@
+.program-bio {
+    color: $black;
+    margin: 80px auto;
+    max-width: 1300px;
+    &-title { 
+        font-size: 60px;
+        line-height: 100%;
+        font-weight: 400;
+        margin-bottom: 55px;
+    }
+    &-description {
+        font-size: 20px;
+        line-height: 150%;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 65px;
+    }
+    &-fields {
+        display: grid;
+        grid-template-columns: 570px 570px;
+        gap: 65px;
+    }
+    .input-default {
+        display: flex;
+        align-items: center;
+        margin-bottom: 22px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &-label {
+            width: 120px;
+            margin: 0 10px 0 0;
+        }
+        input {
+            padding: 8px 15px;
+            width: 100%;
+            max-width: 436px;
+            border: 1px solid #e7e7e7;
+            color: $special_dark-grey;
+            font-size: 20px;
+            font-weight: 400;
+        }
+    }
+}

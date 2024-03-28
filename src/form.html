@@ -1,63 +1,96 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="mobile-nav">   
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="mobile-nav">
+    </nav>
+    <header class="container header">
+        <nav class="desktop-nav">
         </nav>
-        <header class="container header">
-            <nav class="desktop-nav">
-            </nav>
-        </header>
-        <section class="program-bio container">
-            <div class="program-bio-title">
-                Подбор программы
-            </div>
-            <div class="program-bio-description">
-                Заполните анкету, и мы подберём программу питания для вашего кота
-            </div>
-            <div class="program-bio-fields">
-                
-            </div>
-        </section>
-        <section class="map container">
-            <div class="map-invite">
-                <p class="map-invite-title">приглашаем<br>
-                    к сотрудничеству<br>
-                    дилеров!</p>
-                <div class="map-adress">
-                    <p>ул. Большая<br>
-                        Конюшенная, д. 19/8</p>
-                    <p>Санкт-Петербург</p>
+    </header>
+    <section class="program-bio container">
+        <div class="program-bio-title">
+            Подбор программы
+        </div>
+        <div class="program-bio-description">
+            Заполните анкету, и мы подберём<br> программу питания для вашего кота
+        </div>
+        <div class="program-bio-fields">
+            <div class="general-fields">
+                <div class="input-default">
+                    <p class="input-default-label">Имя:*</p>
+                    <input type="text">
+                </div>
+                <div class="input-default">
+                    <p class="input-default-label">Вес (кг):*</p>
+                    <input type="text">
+                </div>
+                <div class="input-default">
+                    <p class="input-default-label">Возраст (лет):</p>
+                    <input type="text">
                 </div>
             </div>
-        </section>
-        <footer class="footer container">
-            <div class="footer-logo">
-                <img src="./img/logo-footer.svg" alt="logo-footer">
+            <div class="radio-fields">
+                <label class="form-control">
+                    <input type="radio" name="1" />
+                    Похудение
+                </label>
+                <label class="form-control">
+                    <input type="radio" name="1" />
+                    Набор массы
+                </label>
+                <label class="form-control">
+                    <input type="radio" name="1" />
+                    Не знаю(нужен ваш совет)
+                </label>
             </div>
-            <div class="footer-social">
-                <ul class="social-list">
-                    <li class="social-item vk">
-                        <img src="./img/sprite/icon-vk.svg" alt="vk">
-                    </li>
-                    <li class="social-item inst">
-                        <img src="./img/sprite/icon-insta.svg" alt="inst">
-                    </li>
-                    <li class="social-item fb">
-                        <img src="./img/sprite/icon-fb.svg" alt="fb">
-                    </li>
-                </ul>
+        </div>
+    </section>
+    <section class="map container">
+        <div class="map-invite">
+            <p class="map-invite-title">приглашаем<br>
+                к сотрудничеству<br>
+                дилеров!</p>
+            <div class="map-adress">
+                <p>ул. Большая<br>
+                    Конюшенная, д. 19/8</p>
+                <p>Санкт-Петербург</p>
             </div>
-            <div class="footer-academy">
-                <p>HTML Academy</p>
-                <img src="./img/logo-footer.png" alt="html">
-            </div>
-        </footer>
-    </body>
-    <script src="js/bandle.js"></script>
+        </div>
+    </section>
+    <footer class="footer container">
+        <div class="footer-logo">
+            <img src="./img/logo-footer.svg" alt="logo-footer">
+        </div>
+        <div class="footer-social">
+            <ul class="social-list">
+                <li class="social-item vk">
+                    <img src="./img/sprite/icon-vk.svg" alt="vk">
+                </li>
+                <li class="social-item inst">
+                    <img src="./img/sprite/icon-insta.svg" alt="inst">
+                </li>
+                <li class="social-item fb">
+                    <img src="./img/sprite/icon-fb.svg" alt="fb">
+                </li>
+            </ul>
+        </div>
+        <div class="footer-academy">
+            <p>HTML Academy</p>
+            <img src="./img/logo-footer.png" alt="html">
+        </div>
+    </footer>
+</body>
+<script src="js/bandle.js"></script>
+
 </html>
