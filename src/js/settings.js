@@ -40,6 +40,19 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
+    function handlePaste(e) {
+        let clipboardData, pastedData;
+      
+        // Stop data actually being pasted into div
+        e.stopPropagation();
+        e.preventDefault();
+      
+        // Get pasted data via clipboard API
+        clipboardData = e.clipboardData || window.clipboardData;
+        pastedData = clipboardData.getData('Text');
+      
+        // Do whatever with pasteddata
+      }
     getWidth()
     window.onresize = getWidth
     let pathName = window.location.pathname
@@ -131,8 +144,8 @@ window.addEventListener("DOMContentLoaded", () => {
             price: "500 Р."
         },
     ]
-    window.addEventListener("click",(event) =>{
-        if (event.target.classList.contains("show-all")){
+    window.addEventListener("click", (event) => {
+        if (event.target.classList.contains("show-all")) {
             for (const item of catalog) {
                 if (!catalogList) {
                     break
@@ -198,5 +211,23 @@ window.addEventListener("DOMContentLoaded", () => {
         </div>
     </div>`
         catalogList.innerHTML += card
+    }
+    let weight = document.querySelector(".weight-input")
+    let age = document.querySelector(".age-input")
+    if (weight) {
+        weight.addEventListener("keydown", (event) => {
+            if (['+', '-', 'e'].includes(event.key)) {
+                event.preventDefault()
+            }
+        })
+        weight.addEventListener('paste', handlePaste);
+    }
+    if (age) {
+        age.addEventListener("keydown", (event) => {
+            if (['+', '-', 'e'].includes(event.key)) {
+                event.preventDefault()
+            }
+        })
+        age.addEventListener('paste', handlePaste);
     }
 })
