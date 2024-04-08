@@ -1,4 +1,6 @@
 .program-contacts {
+    margin-bottom: 80px;
+
     .program-title {
         font-size: 36px;
         font-weight: 400;
@@ -7,6 +9,7 @@
         max-width: 1300px;
         width: 100%;
         margin: 0 auto 30px;
+
         @media (max-width:$tablet) {
             margin-left: 20px;
         }
@@ -15,6 +18,7 @@
             background-color: $white;
             padding: 0 10px;
         }
+
         @media (max-width:$mobile) {
             font-size: 24px;
         }
@@ -26,9 +30,38 @@
         background-color: $basic-green;
         margin-top: -45px;
         margin-bottom: 90px;
+
         @media (max-width:$mobile) {
             margin-top: -42px;
             margin-bottom: 45px;
         }
+    }
+
+    .program-contact-fields {
+        display: grid;
+        grid-template-columns: 570px 570px;
+        justify-content: space-evenly;
+
+        .input-default {
+            margin: 0;
+            position: relative;
+            &:last-child {
+                .icon-after {
+                    background-image: url("../../img/phone1.svg");
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    .icon-after {
+        width: 18px;
+        height: 13px;
+        position: absolute;
+        right: 20px;
+        background-image: url("../../img/icon_email.svg");
+        width: 19px;
+        height: 14px;
     }
 }

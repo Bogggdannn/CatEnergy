@@ -79,3 +79,38 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+.input-default {
+    display: flex;
+    align-items: center;
+    margin-bottom: 22px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &-label {
+        width: 130px;
+        margin: 0 10px 0 0;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $black;
+    }
+    input {
+        padding: 13px 15px;
+        width: 100%;
+        max-width: 436px;
+        border: 1px solid #e7e7e7;
+        color: $special_dark-grey;
+        font-size: 20px;
+        font-weight: 400;
+        outline: none;
+        &::placeholder {
+            font-family: "Oswald", sans-serif;
+            color: $special_grey;
+            
+        }
+        @media (max-width:$tablet) {
+            max-width: 100%;
+        }
+    }
+}
