@@ -1,3 +1,10 @@
+const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 const templatesNav = `            <img class="animate" src="./img/logo-desktop.png" alt="logo">
 <ul class="header-list">
     <li class="header-list__item index cursor-pointer">
@@ -229,5 +236,12 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         })
         age.addEventListener('paste', handlePaste);
+    }
+    let emailInput = document.querySelector(".email-input")
+    if(emailInput){
+        emailInput.addEventListener("input", event => {
+            let email = validateEmail(event.target.value)
+            console.log(email, !!email)
+        })
     }
 })
