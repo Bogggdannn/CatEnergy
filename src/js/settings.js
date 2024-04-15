@@ -1,10 +1,10 @@
 const validateEmail = (email) => {
     return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+};
 const templatesNav = `            <img class="animate" src="./img/logo-desktop.png" alt="logo">
 <ul class="header-list">
     <li class="header-list__item index cursor-pointer">
@@ -49,17 +49,17 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     function handlePaste(e) {
         let clipboardData, pastedData;
-      
+
         // Stop data actually being pasted into div
         e.stopPropagation();
         e.preventDefault();
-      
+
         // Get pasted data via clipboard API
         clipboardData = e.clipboardData || window.clipboardData;
         pastedData = clipboardData.getData('Text');
-      
+
         // Do whatever with pasteddata
-      }
+    }
     getWidth()
     window.onresize = getWidth
     let pathName = window.location.pathname
@@ -238,10 +238,28 @@ window.addEventListener("DOMContentLoaded", () => {
         age.addEventListener('paste', handlePaste);
     }
     let emailInput = document.querySelector(".email-input")
-    if(emailInput){
+    if (emailInput) {
         emailInput.addEventListener("input", event => {
             let email = validateEmail(event.target.value)
-            console.log(email, !!email)
+            if (email) {
+                emailInput.classList.remove("input-error")
+            }
+            else { 
+                emailInput.classList.add("input-error")
+            }
+        })
+    }
+    let telInput = document.querySelector(".tel-input")
+    if(telInput){
+        telInput.addEventListener("input", event => {
+            let telInputLenght = event.target.value.length
+            console.log(telInputLenght)
+            if(telInputLenght < 18){
+                telInput.classList.add("input-error")
+            }
+            else{
+                telInput.classList.remove("input-error")
+            }
         })
     }
 })

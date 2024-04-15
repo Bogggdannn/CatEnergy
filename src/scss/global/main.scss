@@ -113,4 +113,8 @@ input::-webkit-inner-spin-button {
             max-width: 100%;
         }
     }
+
+    .input-error {
+        border-color: red;
+    }
 }
