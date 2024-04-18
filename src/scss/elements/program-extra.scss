@@ -1,0 +1,114 @@
+.program-extra {
+    .program-title {
+        font-size: 36px;
+        font-weight: 400;
+        color: $black;
+        position: relative;
+        max-width: 1300px;
+        width: 100%;
+        margin: 0 auto 30px;
+
+        @media (max-width:$tablet) {
+            margin-left: 20px;
+        }
+
+        span {
+            background-color: $white;
+            padding: 0 10px;
+        }
+
+        @media (max-width:$mobile) {
+            font-size: 24px;
+        }
+    }
+
+    .program-line {
+        width: 100%;
+        height: 2px;
+        background-color: $basic-green;
+        margin-top: -45px;
+        margin-bottom: 90px;
+
+        @media (max-width:$mobile) {
+            margin-top: -42px;
+            margin-bottom: 45px;
+        }
+    }
+
+    .program-extra-fields {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 60px;
+    }
+
+    /* Customize the label (the container) */
+    .container-checkbox {
+        display: flex;
+        position: relative;
+        padding-left: 50px;
+        height: 40px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        align-items: center;
+        width: fit-content;
+        font-size: 20px;
+        font-weight: 400;
+        color: $black;
+        text-transform: uppercase;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 38px;
+        width: 38px;
+        border: 1px solid #cdcdcd;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container-checkbox:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container-checkbox input:checked~.checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container-checkbox .checkmark:after {
+        left: 40%;
+        top: 45%;
+        width: 5px;
+        height: 10px;
+        border: solid $basic-green;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg) translate(-45%, -40%);
+
+    }
+
+}

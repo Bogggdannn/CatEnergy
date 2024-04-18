@@ -262,4 +262,17 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
+    let textArea = document.querySelector(".comments-textarea")
+    if(textArea){
+        textArea.addEventListener("input", event =>{
+            let textAreaLenght = event.target.value.length
+            console.log(textAreaLenght)
+            if(textAreaLenght < 2){
+                textArea.classList.add("input-error")
+            }
+            else{
+                textArea.classList.remove("input-error")
+            }
+        })
+    }
 })

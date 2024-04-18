@@ -47,9 +47,10 @@
         font-weight: 400;
         outline: none;
         box-sizing: border-box;
+        resize: none;
         &::placeholder {
             font-family: "Oswald", sans-serif;
-            color: $special_dark-grey;
+            color: $special_grey;
             text-transform: uppercase;
         }
     }

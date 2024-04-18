@@ -114,7 +114,9 @@ input::-webkit-inner-spin-button {
         }
     }
 
-    .input-error {
-        border-color: red;
-    }
+
+}
+
+.input-error {
+    border-color: red !important; 
 }
