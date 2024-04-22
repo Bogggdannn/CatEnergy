@@ -275,4 +275,31 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
+    let sendMessage = document.querySelector(".send-message")
+    if(sendMessage){
+        sendMessage.addEventListener("click", () => {
+            console.log(textArea.value)
+            if(textArea.value.length < 2){
+                textArea.classList.add("input-error")
+                return
+            }
+            else{
+                textArea.classList.remove("input-error")
+            }
+            if(telInput.value.length < 18){
+                telInput.classList.add("input-error")
+                return
+            }
+            else{
+                telInput.classList.remove("input-error")
+            }
+            if(!validateEmail(emailInput.value)){
+                emailInput.classList.add("input-error")
+                return
+            }
+            else{
+                emailInput.classList.remove("input-error")
+            }
+        })
+    }
 })

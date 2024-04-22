@@ -41,6 +41,11 @@
         display: grid;
         grid-template-columns: 570px 570px;
         justify-content: space-evenly;
+        @media (max-width:$tablet) {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 10px;
+        }
 
         .input-default {
             margin: 0;
