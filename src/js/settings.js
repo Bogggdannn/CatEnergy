@@ -275,12 +275,21 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
+    let name = document.querySelector(".name-input")
     let sendMessage = document.querySelector(".send-message")
     if(sendMessage){
         sendMessage.addEventListener("click", () => {
             console.log(textArea.value)
+            let radioFields = Array.from(document.querySelectorAll(".radio-fields input"))
+            for(let radio of radioFields){
+                console.log(radio.checked)
+                if(radio.checked){
+                    console.log( radio.dataset.label)
+                }
+            }
             if(textArea.value.length < 2){
                 textArea.classList.add("input-error")
+                textArea.scrollIntoView({ block: "center", behavior: "smooth" });
                 return
             }
             else{
@@ -288,6 +297,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
             if(telInput.value.length < 18){
                 telInput.classList.add("input-error")
+                telInput.scrollIntoView({ block: "center", behavior: "smooth" });
                 return
             }
             else{
@@ -295,10 +305,44 @@ window.addEventListener("DOMContentLoaded", () => {
             }
             if(!validateEmail(emailInput.value)){
                 emailInput.classList.add("input-error")
+                emailInput.scrollIntoView({ block: "center", behavior: "smooth" });
                 return
             }
             else{
                 emailInput.classList.remove("input-error")
+            }
+            if(name.value.length > 2){
+                name.classList.remove("input-error")
+            }
+            else{
+                name.classList.add("input-error")
+                name.scrollIntoView({ block: "center", behavior: "smooth" });
+                return
+            }
+            if(weight.value.length >= 1){
+                weight.classList.remove("input-error")
+            }
+            else{
+                weight.classList.add("input-error")
+                weight.scrollIntoView({ block: "center", behavior: "smooth" });
+                return
+            }
+            if(age.value.length >= 1){
+                age.classList.remove("input-error")
+            }
+            else{
+                age.classList.add("input-error")
+                age.scrollIntoView({ block: "center", behavior: "smooth" });
+                return
+            }
+            let request = {
+                name:name.value,
+                weight:weight.value,
+                age:age.value,
+                email:emailInput.value,
+                tel:telInput.value,
+                textarea:textArea.value,
+
             }
         })
     }
