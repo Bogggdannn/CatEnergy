@@ -5,6 +5,23 @@ const validateEmail = (email) => {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
 };
+let questionTwo = []
+const changeCheckbox = event => {
+
+
+    const textContent = event.target.parentNode.textContent.replace(/\n/g, '').trim()
+    if(event.target.checked){
+        questionTwo.push(textContent)
+    }
+    else{
+        const index = questionTwo.findIndex(label => label===textContent)
+        if(index === -1){
+            return
+        }
+        questionTwo.splice(index,1)
+    }
+    console.log(questionTwo)
+}
 const templatesNav = `            <img class="animate" src="./img/logo-desktop.png" alt="logo">
 <ul class="header-list">
     <li class="header-list__item index cursor-pointer">
@@ -277,16 +294,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     let name = document.querySelector(".name-input")
     let sendMessage = document.querySelector(".send-message")
+    let questionOne = null
     if(sendMessage){
         sendMessage.addEventListener("click", () => {
             console.log(textArea.value)
-            let radioFields = Array.from(document.querySelectorAll(".radio-fields input"))
-            for(let radio of radioFields){
-                console.log(radio.checked)
-                if(radio.checked){
-                    console.log( radio.dataset.label)
-                }
-            }
             if(textArea.value.length < 2){
                 textArea.classList.add("input-error")
                 textArea.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -335,6 +346,13 @@ window.addEventListener("DOMContentLoaded", () => {
                 age.scrollIntoView({ block: "center", behavior: "smooth" });
                 return
             }
+            let radioFields = Array.from(document.querySelectorAll(".radio-fields input"))
+            for(let radio of radioFields){
+                console.log(radio.checked)
+                if(radio.checked){
+                    questionOne = radio.dataset.label
+                }
+            }
             let request = {
                 name:name.value,
                 weight:weight.value,
@@ -342,8 +360,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 email:emailInput.value,
                 tel:telInput.value,
                 textarea:textArea.value,
-
+                
             }
         })
+    }
+    let checkboxFields = Array.from(document.querySelectorAll(".program-extra-fields input"))
+    if(checkboxFields.length){
+        for(let checkbox of checkboxFields){
+            checkbox.addEventListener("input", event => changeCheckbox(event))
+        }
     }
 })
