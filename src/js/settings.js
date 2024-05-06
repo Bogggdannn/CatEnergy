@@ -296,7 +296,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let sendMessage = document.querySelector(".send-message")
     let questionOne = null
     if(sendMessage){
-        sendMessage.addEventListener("click", () => {
+        sendMessage.addEventListener("click", async() => {
             console.log(textArea.value)
             if(textArea.value.length < 2){
                 textArea.classList.add("input-error")
@@ -360,8 +360,16 @@ window.addEventListener("DOMContentLoaded", () => {
                 email:emailInput.value,
                 tel:telInput.value,
                 textarea:textArea.value,
-                
-            }
+                questionOne:questionOne,
+                questionTwo:questionTwo
+            } 
+              let response = await fetch('http://echo.htmlacademy.ru/', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(request)
+              });
         })
     }
     let checkboxFields = Array.from(document.querySelectorAll(".program-extra-fields input"))
@@ -370,4 +378,54 @@ window.addEventListener("DOMContentLoaded", () => {
             checkbox.addEventListener("input", event => changeCheckbox(event))
         }
     }
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(json => console.log(json))
+
+    const headers = new Headers({
+    "Content-Type": "application/json",
+    "x-api-key": "live_kIyW0iicZWH4CNSCbEP9Bz0kHmyAQ3MOzMPJYzHjQTz0rQisusWZcxhrZv5jRKh7"
+    });
+    
+    var requestOptions = {
+    method: 'GET',
+    headers: headers,
+    redirect: 'follow'
+    };
+    
+    fetch("https://api.thecatapi.com/v1/images/search?limit=20", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+        for(let text of result){
+            console.log(text)
+            let isBig = parseInt(text.width) > 700
+                const card = `<div class="catalog-list-card ${isBig ? "isbig" : ""}">
+                <div class="catalog-list-body">
+                    <img src="${text.url}" alt="chicken small">
+                    <div class="catalog-list-params">
+                        <p class="catalog-list-name">
+                            ${text.width}
+                        </p>
+                        <p class="catalog-list-weight">
+                            <span class="params-name">Масса</span>
+                            <span class="params-value">${text.width}</span>
+                        </p>
+                        <p class="catalog-list-taste">
+                            <span class="params-name">Вкус</span>
+                            <span class="params-value">${text.width}</span>
+                        </p>
+                        <p class="catalog-list-price">
+                            <span class="params-name">Цена</span>
+                            <span class="params-value">${text.width}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="catalog-list-actions">
+                    <button class="button-default">Заказать</button>
+                </div>
+            </div>`
+            catalogList.innerHTML += card
+        }
+    })
+    .catch(error => console.log('error', error)); 
 })
